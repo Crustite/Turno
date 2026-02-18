@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class pruebaTurno {
+    public static void main (String []args){
+        
+        Scanner scanner = new Scanner (System.in);
+        int horaInicio;
+        int horaFin;
+        String Turno; 
+        
+        System.out.print("Introduce la hora de inicio: ");// imprime
+        horaInicio = scanner.nextInt();/**bloquea el programa, espera a que el us escriba y LEE el nº,
+        lo devuelve y lo asigna a la variable**/
+           
+        System.out.print ("Intrudice la hora de fin: ");//print ESCRIBE texto en la salida.
+        horaFin =scanner.nextInt();//LEE un entero desde la entrada
+        
+        if  (horaInicio >= horaFin) { //while se usa-->necesitas que el estado cambie dentro del bucle
+            System.out.println("Error");
+        }  else {
+            System.out.println("Turno válido");
+        
+        }
+           
+               scanner.close();  
+               
+          
+        // Caso válido
+        Turno t1 = new Turno("Lunes", 9, 14);
+        System.out.println("Turno creado correctamente.");
+
+        // Caso límite válido
+        Turno t2 = new Turno("Martes", 10, 11);
+        System.out.println("Turno límite creado correctamente.");
+
+        // Caso inválido
+        try {
+            Turno t3 = new Turno("Miércoles", 15, 10);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error detectado: " + e.getMessage());
+            //el constructor ya impide crear turnos inválidos,iene sentido probar uno inválido en main
+            //para detectar el fallo concreto y trabajar sobre él; compruebas qla regla se cumple.
+        }
+    }
+}
