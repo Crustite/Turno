@@ -1,42 +1,36 @@
 # Turno
-//Este repositorio es para aprender sobre el mecanismo del objeto y probar su límite
-public class Turno {
 
-private int horaInicio; //estados : qdescriben cómo es Turno (objeto).
-private int horaFin;//cada uno tiene sus propios valores para esas V.
-private String nombreDia; // V de instancia= estado almacecnado<-- Atribts son las V que lo guardan       
-// atribts= V de instancia = estado almacenado
-        
-public Turno(String dia, int horaInicio, int horaFin) {//accions dl OBJ+Constructor+método ESP // Constructr es el mecanismo qcrea el OBJ y establece su estado inicial.
-        if  (horaInicio >= horaFin) { //while se usa-->necesitas que el estado cambie dentro del bucle
-            throw new IllegalArgumentException("Turno inválido");
-        } 
-        this.nombreDia=dia;
-        this.horaInicio= horaInicio;
-        this.horaFin= horaFin;
-         
-//en main: Turno 1 --> Lunes,9,14; Turno 2 --> Martes, 16,20
-        
- }
-public String getDia (){
-        
- return nombreDia;
-    }
-    
- public int gerHoraInicio (){
-        
-  return horaInicio;
-    }
-    
-public int getHoraFin (){
-        
-  return horaFin;
-        
-} public void mostrarTurno() {
-    System.out.println(nombreDia + " de " + horaInicio + " a " + horaFin);
-}
+Aplicación en Java para practicar Programación Orientada a Objetos mediante la creación y validación de turnos.
 
-        
-}
-    
-        
+## Descripción
+
+La clase `Turno` representa un turno de trabajo definido por:
+
+- Día
+- Hora de inicio
+- Hora de fin
+
+El constructor valida que la hora de fin sea posterior a la de inicio.
+
+Si no se cumple la regla, se lanza una `IllegalArgumentException`.
+
+## Validación implementada
+
+Regla de negocio:
+
+horaInicio < horaFin
+
+Si no se cumple:
+
+throw new IllegalArgumentException("Turno inválido");
+
+Esto garantiza que no se creen objetos en estado inválido.
+
+## Conceptos aplicados
+
+- Programación Orientada a Objetos
+- Constructores
+- Atributos de instancia
+- Encapsulación
+- Excepciones
+- Validación defensiva
